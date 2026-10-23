@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#020c1b">
+
+<title>Raipura FM | আপনার এলাকার কণ্ঠস্বর</title>
+<meta name="description" content="Raipura FM — রায়পুরার গান, খবর, গল্প ও মানুষের কথা।">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Noto Sans Bengali", "Hind Siliguri", Arial, sans-serif;
+  background: #020c1b;
+  color: #f4f8ff;
+  line-height: 1.7;
+}
+
+:root {
+  --cyan: #00d9ff;
+  --blue: #087cff;
+  --panel: #061a31;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  background: #020b19;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--blue);
+}
+
+.nav {
+  max-width: 1150px;
+  margin: auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  border-radius: 9px;
+  background: #000;
+}
+
+.brand h2 {
+  font-size: 23px;
+  line-height: 1.3;
+  letter-spacing: 1px;
+}
+
+.brand h2 span {
+  color: var(--cyan);
+}
+
+.brand p {
+  color: var(--cyan);
+  font-size: 13px;
+}
+
+nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  font-size: 14px;
+  color: #e0eaff;
+}
+
+nav a:hover {
+  color: var(--cyan);
+}
+
+.listen {
+  border-radius: 30px;
+  padding: 10px 18px;
+  background: linear-gradient(100deg, var(--cyan), var(--blue));
+  color: white;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.hero {
+  min-height: 390px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg,
+      rgba(2,12,27,.92),
+      rgba(2,12,27,.58),
+      rgba(2,12,27,.12)),
+    url("file_000000005f28820890d0d8eea8a26da5.png")
+    center / cover no-repeat;
+  border-bottom: 1px solid var(--blue);
+}
+
+.hero-inner {
+  max-width: 1150px;
+  width: 100%;
+  margin: auto;
+  padding: 45px 20px;
+}
+
+.location {
+  color: var(--cyan);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 65px);
+  line-height: 1.2;
+  margin: 12px 0;
+}
+
+.hero h1 span {
+  color: var(--cyan);
+}
+
+.hero p {
+  max-width: 520px;
+  color: #e0eaff;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 28px;
+  border: 1px solid var(--cyan);
+  font-weight: bold;
+}
+
+.btn.primary {
+  background: linear-gradient(100deg, var(--cyan), var(--blue));
+  border: none;
+}
+
+.strip {
+  display: flex;
+  justify-content: space-around;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 13px 15px;
+  background: #03162b;
+  border-bottom: 1px solid var(--blue);
+  color: var(--cyan);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+section {
+  max-width: 1150px;
+  margin: auto;
+  padding: 38px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.section-title small {
+  color: var(--cyan);
+  letter-spacing: 3px;
+}
+
+.section-title h2 {
+  font-size: clamp(23px, 4vw, 32px);
+  line-height: 1.5;
+}
+
+.section-title p {
+  color: #aebfda;
+  margin-top: 7px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card {
+  border: 1px solid #0785ca;
+  border-radius: 16px;
+  padding: 22px;
+  background: linear-gradient(140deg, #061c35, #031020);
+  transition: transform .2s, border-color .2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+}
+
+.emoji {
+  font-size: 34px;
+}
+
+.card h3 {
+  margin: 9px 0;
+}
+
+.card p {
+  font-size: 14px;
+  color: #b9cbe4;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 25px;
+  align-items: center;
+  background: var(--panel);
+  border: 1px solid #0785ca;
+  border-radius: 17px;
+  padding: 24px;
+}
+
+.big-logo {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #000;
+}
+
+.about h2 {
+  margin: 5px 0 10px;
+}
+
+.about p {
+  color: #bdcce1;
+}
+
+.features {
+  margin: 12px 0 0 20px;
+  color: #dce9fa;
+}
+
+.features li::marker {
+  color: var(--cyan);
+}
+
+.contact {
+  background: linear-gradient(110deg, #008ed8, #0647a5, #03152b);
+  border: 1px solid var(--cyan);
+  border-radius: 16px;
+  padding: 23px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.contact h2 {
+  font-size: 23px;
+}
+
+.contact p {
+  color: #d9ebff;
+}
+
+.contact-links {
+  display: grid;
+  gap: 12px;
+}
+
+.contact-link {
+  padding: 14px;
+  border: 1px solid #0785ca;
+  border-radius: 12px;
+  background: #03152b;
+  overflow-wrap: anywhere;
+}
+
+.contact-link strong {
+  display: block;
+  color: var(--cyan);
+  font-size: 13px;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  background: #020916;
+  border-top: 1px solid #123a60;
+  color: #aabbd3;
+  font-size: 13px;
+}
+
+footer span {
+  color: var(--cyan);
+}
+
+@media (max-width: 800px) {
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+
+  .brand h2 {
+    font-size: 19px;
+  }
+
+  .logo {
+    width: 55px;
+    height: 55px;
+  }
+
+  .listen {
+    padding: 9px 13px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .big-logo {
+    margin: auto;
+    width: 170px;
+  }
+
+  .features {
+    display: inline-block;
+    text-align: left;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 360px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+
+    <a class="brand" href="#home">
+      <img class="logo"
+           src="20261023_202650.png"
+           alt="Raipura FM Logo">
+
+      <div>
+        <h2>RAIPURA <span>FM</span></h2>
+        <p>আপনার এলাকার কণ্ঠস্বর</p>
+      </div>
+    </a>
+
+    <nav>
+      <a href="#home">⌂ হোম</a>
+      <a href="#programs">♫ অনুষ্ঠান</a>
+      <a href="#news">▤ খবর</a>
+      <a href="#about">আমাদের কথা</a>
+      <a href="#contact">যোগাযোগ</a>
+    </nav>
+
+    <a class="listen" href="#programs">▶ শুনুন</a>
+
+  </div>
+</header>
+
+<main>
+
+  <div class="hero" id="home">
+    <div class="hero-inner">
+
+      <div class="location">
+        📍 RAIPURA · NARSINGDI · BANGLADESH
+      </div>
+
+      <h1>
+        আপনার প্রিয়<br>
+        Raipura <span>FM</span>
+      </h1>
+
+      <p>
+        রায়পুরার মাটি, মানুষের গল্প আর ভালো লাগার সুর—
+        সবকিছু এক ঠিকানায়। গান, খবর, আলোচনা ও
+        অনুপ্রেরণার সঙ্গে থাকুন আমাদের পাশে।
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" href="#programs">
+          ▶ আমাদের অনুষ্ঠান
+        </a>
+
+        <a class="btn" href="#about">
+          ⓘ আমাদের সম্পর্কে
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="strip">
+    <span>◉ RAIPURA FM</span>
+    <span>♫ গান ও বিনোদন</span>
+    <span>▤ স্থানীয় খবর</span>
+    <span>🎙 আলোচনা ও গল্প</span>
+    <span>📍 রায়পুরা, নরসিংদী</span>
+  </div>
+
+  <section id="programs">
+
+    <div class="section-title">
+      <small>TUNE INTO YOUR TOWN</small>
+      <h2>আপনার জন্য আমাদের আয়োজন</h2>
+      <p>
+        আপনার এলাকার পরিচয়, মানুষের কথা এবং প্রতিদিনের
+        ভালো লাগাকে তুলে ধরাই আমাদের লক্ষ্য।
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <article class="card">
+        <div class="emoji">🎵</div>
+        <h3>গান ও বিনোদন</h3>
+        <p>
+          মন ভালো করা গান, বিনোদনমূলক কনটেন্ট আর
+          আনন্দের মুহূর্ত—আপনার প্রতিদিনের সঙ্গী।
+        </p>
+      </article>
+
+      <article class="card" id="news">
+        <div class="emoji">📰</div>
+        <h3>রায়পুরার খবর</h3>
+        <p>
+          রায়পুরা ও আশপাশের এলাকার গুরুত্বপূর্ণ খবর,
+          আপডেট এবং জনজীবনের নানা কথা।
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="emoji">🎙️</div>
+        <h3>গল্প ও আলোচনা</h3>
+        <p>
+          মানুষের অভিজ্ঞতা, অনুপ্রেরণার গল্প,
+          ঐতিহ্য এবং এলাকার গুরুত্বপূর্ণ নানা দিক।
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="about">
+
+    <div class="about">
+
+      <img class="big-logo"
+           src="20261023_202650.png"
+           alt="Raipura FM Logo">
+
+      <div>
+        <small style="color:var(--cyan);letter-spacing:2px">
+          OUR IDENTITY
+        </small>
+
+        <h2>রায়পুরার কণ্ঠ পৌঁছে যাক সবার কাছে</h2>
+
+        <p>
+          Raipura FM হলো রায়পুরার মানুষ ও এলাকার গল্পকে
+          সবার সামনে তুলে ধরার একটি ডিজিটাল উদ্যোগ।
+          গান, খবর, বিনোদন ও মানুষের সঙ্গে মানুষের
+          সংযোগের মাধ্যমে রায়পুরার পরিচিতি তুলে ধরাই আমাদের লক্ষ্য।
+        </p>
+
+        <ul class="features">
+          <li>আধুনিক ও ব্যবহারবান্ধব ডিজাইন</li>
+          <li>মোবাইল ও কম্পিউটারে ব্যবহারযোগ্য</li>
+          <li>Facebook ও YouTube লিংক যোগ করার সুযোগ</li>
+          <li>স্থানীয় কনটেন্ট এবং নতুন আয়োজন</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+
+    <div class="contact">
+
+      <div>
+        <h2>Raipura FM-এর সঙ্গে থাকুন</h2>
+
+        <p>
+          গান, খবর, গল্প আর রায়পুরার মানুষের কণ্ঠস্বর—
+          আমাদের সঙ্গে যুক্ত থাকুন।
+        </p>
+
+        <div class="actions">
+          <a class="btn primary"
+             href="mailto:abirhoosain890@gmail.com">
+            ✉ ইমেইল করুন
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-links">
+
+        <a class="contact-link"
+           href="mailto:abirhoosain890@gmail.com">
+          <strong>ইমেইল</strong>
+          abirhoosain890@gmail.com
+        </a>
+
+        <a class="contact-link"
+           href="tel:+966532139446">
+          <strong>ফোন / WhatsApp</strong>
+          +966 532139446
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>
+    <span>RAIPURA FM</span> |
+    আপনার এলাকার কণ্ঠস্বর
+  </p>
+
+  <p>
+    © 2026 Raipura FM · রায়পুরা, নরসিংদী, বাংলাদেশ
+  </p>
+</footer>
+
+</body>
+  </html>
